@@ -27,7 +27,10 @@ function setUpImages(meeting_number){
        $("#canvas_four").width(width); */
 
 
-
+  var movementOne = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/0m/movements/');
+  var movementTwo = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/1m/movements/');
+  var movementThree = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/2m/movements/');
+  var movementFour = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/3m/movements/');
 
    var imageOneRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/0/');
    var imageTwoRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/1/');
@@ -35,6 +38,69 @@ function setUpImages(meeting_number){
    var imageFourRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/3/');
 
     var questionsRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/question_array/');
+
+
+      movementOne.on('value', function(snapshot) {
+        console.log("IN movement");
+        if(snapshot.val()!==null){
+            var x= snapshot.val().x *8;
+            var y= snapshot.val().y *8;
+            var pone = $("#p_one");
+            pone.css('margin-left',x+'px');
+            pone.css('margin-top',y+'px');
+            console.log(x);
+            console.log(y);
+        }
+
+
+      });
+
+  movementTwo.on('value', function(snapshot) {
+        console.log("IN movement");
+        if(snapshot.val()!==null){
+            var x= snapshot.val().x *8;
+            var y= snapshot.val().y *8;
+            var pone = $("#p_two");
+            pone.css('margin-left',x+'px');
+            pone.css('margin-top',y+'px');
+            console.log(x);
+            console.log(y);
+        }
+
+
+      });
+  movementThree.on('value', function(snapshot) {
+        console.log("IN movement");
+        if(snapshot.val()!==null){
+            var x= snapshot.val().x *8;
+            var y= snapshot.val().y *8;
+            var pone = $("#p_three");
+            pone.css('margin-left',x+'px');
+            pone.css('margin-top',y+'px');
+            console.log(x);
+            console.log(y);
+        }
+
+
+      });
+    movementFour.on('value', function(snapshot) {
+        console.log("IN movement");
+        if(snapshot.val()!==null){
+            var x= snapshot.val().x *8;
+            var y= snapshot.val().y *8;
+            var pone = $("#p_four");
+            pone.css('margin-left',x+'px');
+            pone.css('margin-top',y+'px');
+            console.log(x);
+            console.log(y);
+        }
+
+
+      });
+
+
+
+
 
       imageOneRef.on('value', function(snapshot) {
         var image= snapshot.val();
@@ -88,11 +154,16 @@ function setUpImages(meeting_number){
       	var ourim  = image;
       	// imagestring = '<img id="'+num+'" src="data:image/png;base64,'+ourim+'"/>';
          image_holder.empty();
-        var imagestring = '<img id="'+num+'" src="data:image/png;base64,'+ourim+'" ></img>';
+        var imagestring = '<img class="imagez" id="'+num+'" src="data:image/png;base64,'+ourim+'" ></img>';
         console.log(image_holder);
 
 
       	  image_holder.append(imagestring);
+          var pointstring = '<div class="pointer" id="p_'+num+'"></div>';
+          console.log("PointString:"+pointstring);
+          console.log(image_holder);
+          image_holder.append(pointstring);
+          console.log(image_holder);
 
           $("#"+num).width(width);
           $("#"+num).height(height);
