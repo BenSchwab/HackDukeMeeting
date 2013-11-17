@@ -1,49 +1,155 @@
-<html>
-  <head>
-   <script src='https://cdn.firebase.com/v0/firebase.js'></script>
-   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-   <script src='meeting.js'></script> 
- 
-   <link rel="stylesheet" type="text/css" href="style.css" />
+<!DOCTYPE html>
+<html><head data-gwd-animation-mode="quickMode"><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJla55ee4c2e1fb2d92e5ba711eeda3bc22"/>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <title>Collaboard</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Google Web Designer 1.0.1.1025">
+    <style type="text/css">html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+
+}
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('sourcesanspro-regular-webfont.eot');
+    src: url('sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sourcesanspro-regular-webfont.woff') format('woff'),
+         url('sourcesanspro-regular-webfont.ttf') format('truetype'),
+         url('sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+.gwd-body {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  -moz-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  background-color: black;
+  color: white;
+  font-family: "source_sans_proregular";
+
+
+}
+
+.canvas{
+  width: 0;
+  height: 0;
+  border: #464646 3px solid;
+  padding: 3px;
+
+}
+
+.gwd-div-2i9w {
+  position: absolute;
+  width: 20%;
+  left: 0%;
+  background-image: none;
+  padding: 10px;
+  top: 2%;
+  height: 96%;
+}
+
+.gwd-div-229t {
+  position: absolute;
+  top: 0%;
+  height: 50%;
+  left: 22%;
+  width: 38%;
+}
+
+.gwd-div-cns7 {
+  position: absolute;
+  background-image: none;
+
+  left: 61%;
+  width: 37%;
+  top: 2%;
+  height: 47%;
+}
+
+.gwd-div-17qz {
+  background-image: none;
+
+  width: 37%;
+  top: 2%;
+  height: 47%;
+}
+
+.gwd-div-4vx5 {
+  top: 51%;
+  background-image: none;
+
+  left: 22%;
+  width: 37%;
+  height: 47%;
+}
+
+.gwd-div-5x90 {
+  position: absolute;
+  top: 51%;
+  background-image: none;
+
+  width: 37%;
+  left: 61%;
+  height: 47%;
+}
+
+</style>
   </head>
-  <body >
 
-	<p>Hello</p>
-	<div style="width: 100%; display:table;">
-		<div class="base_row" style = "display: table-row">
-			<div class= "messages">
+  <body class="gwd-body">
 
-			</div>
-			<div class = "images">
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+   <script src='meeting.js'></script>
+    <div class="gwd-div-2i9w canvas" id="questions">
 
-				<table class="pic_row">
-					<tr style = "display: table-row">
-						<td>
-								<canvas id="canvas_one" width="500" height="500">
-									
-								</canvas>			
-						</td>
+      <img src="collaboard.png" width="200px" height="75px" />
+      <h4>Meeting Number</h4>
 
-						<td>
-						<img class="table_pic" src="http://3.bp.blogspot.com/-GAGww-XMtsw/T50x9iLu5pI/AAAAAAAAAK4/Cfafw_7q79w/s400/Race+car+wallpaper--.jpg" width="500" height="500"/>
-						</td>
-					</tr>
-					<tr style = "display: table-row">
-						<td>
-						<img class="table_pic" src="http://3.bp.blogspot.com/-GAGww-XMtsw/T50x9iLu5pI/AAAAAAAAAK4/Cfafw_7q79w/s400/Race+car+wallpaper--.jpg" width="500" height="500"/>
-						</td>
+        <input type="text" id="meeting_number"/>
 
-						<td>
-						<img class="table_pic" src="http://3.bp.blogspot.com/-GAGww-XMtsw/T50x9iLu5pI/AAAAAAAAAK4/Cfafw_7q79w/s400/Race+car+wallpaper--.jpg" width="500" height="500"/>
-						</td>
-					</tr>
-				
-			
-				</div>
-			</div>
-	</div>
-</div>
-  	
+      <h3>Agenda</h3>
+
+
+
+    </div>
+    <div class="gwd-div-229t gwd-div-4vx5 canvas" id="image3">
+
+
+    </div>
+    <div class="gwd-div-cns7 canvas" id="image2">
+
+
+
+    </div>
+    <div class="gwd-div-229t gwd-div-17qz canvas" id="image1">
+
+
+    </div>
+    <div class="gwd-div-5x90 canvas" id="image4">
+
+
+
+    </div>
+
+
+</body></html>
+
+
+
+
+
+
+
+
 
 	</body>
 </html>

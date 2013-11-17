@@ -1,25 +1,113 @@
+
+
+
    $( document ).ready(function() {
-   	console.log("Am I working!");
 
-   var myDataRef = new Firebase('https://hackduke.firebaseio.com/meetings/83531/1/');
+$("#meeting_number").keyup(function(event){
+    if(event.keyCode == 13){
+        setUpImages($("#meeting_number").val());
+    }
+});
 
-      myDataRef.on('value', function(snapshot) {
+
+function setUpImages(meeting_number){
+
+    console.log("Yes!");
+    console.log(""+meeting_number);
+    var width = $("#image1").width();
+    var height = $("#image1").height();
+
+         /*$("#canvas_one").height(height);
+       $("#canvas_one").width(width);
+        $("#canvas_two").height(height);
+       $("#canvas_two").width(width);
+        $("#canvas_three").height(height);
+       $("#canvas_three").width(width);
+        $("#canvas_four").height(height);
+       $("#canvas_four").width(width); */
+
+
+
+
+   var imageOneRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/0/');
+   var imageTwoRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/1/');
+   var imageThreeRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/2/');
+   var imageFourRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/3/');
+
+    var questionsRef = new Firebase('https://hackduke.firebaseio.com/meetings/'+meeting_number+'/question_array/');
+
+      imageOneRef.on('value', function(snapshot) {
         var image= snapshot.val();
-        displayChatMessage(image);
+       // var canvas = document.getElementById("canvas_one");
+        displayImage(image,"one",$("#image1"));
+      });
+      imageTwoRef.on('value', function(snapshot) {
+        var image= snapshot.val();
+        //var canvas = document.getElementById("canvas_two");
+        displayImage(image,"two",$("#image2"));
       });
 
-      function displayChatMessage(image){
+        imageThreeRef.on('value', function(snapshot) {
+        var image= snapshot.val();
+        //var canvas = document.getElementById("canvas_three");
+        displayImage(image,"three",$("#image3"));
+      });
+        imageFourRef.on('value', function(snapshot) {
+        var image= snapshot.val();
+        //var canvas = document.getElementById("canvas_four");
+        displayImage(image,"four",$("#image4"));
+      });
+
+        questionsRef.on('value', function(snapshot) {
+        var question = snapshot.val();
+        addquestion(question);
+      });
+
+        function addquestion(question){
+           //var qs = question.split(",");
+           //console.log(qs.length);
+           if(question!==null){
+           $("#questions").append("<ul>");
+           for(var i =question.length-1; i<question.length; i++){
+               $("#questions").append("<li>"+question[i]+"</li>");
+           }
+           $("#questions").append("</ul>");
+       }
+
+        }
+
+
+      function displayImage(image,num,image_holder){
       	//var im = atob(image.trim());
-      var im =	Base64.decode(image);
+      //var im =	Base64.decode(image);
      // im = atob(im);
+        if(image===null)
+            return;
       	//draw(im);
-      	//var testim = 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" '
+      	var testim = 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" '
       	var ourim  = image;
-      	var imagestring = '<img src="data:image/png;base64,'+ourim+'alt="Red dot"/>';
+      	// imagestring = '<img id="'+num+'" src="data:image/png;base64,'+ourim+'"/>';
+         image_holder.empty();
+        var imagestring = '<img id="'+num+'" src="data:image/png;base64,'+ourim+'" ></img>';
+        console.log(image_holder);
 
-      	  $(".messages").append(imagestring);
 
-      
+      	  image_holder.append(imagestring);
+
+          $("#"+num).width(width);
+          $("#"+num).height(height);
+          //$("#test").hide();
+          //"#"+num+""
+        //var imageOb = new Image();
+        //var src = $(imagestring).attr("src");
+        //imageOb.src = src;
+        //draw(canvas,imageOb,width,height);
+
+
+
+
+
+
        // $(".messages").append("<p> hello </p>");
 
 
@@ -28,11 +116,11 @@
 
 
 
-    function draw(image) {
-      var canvas = document.getElementById("canvas_one");
+    function draw(canvas, image,width, height) {
+
       if (canvas.getContext) {
         var ctx = canvas.getContext("2d");
-        ctx.drawImage(image,0,0);
+        ctx.drawImage(image,0,0,width/1.7 ,height/1.75);
 
       }
     }
@@ -174,6 +262,7 @@ _utf8_decode : function (utftext) {
 
 }
 
+}
 
 
 });

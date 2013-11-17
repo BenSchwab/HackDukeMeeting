@@ -2,12 +2,12 @@
 	height: 100%;
 	width: 200px;
 	background-color: #adfadf;
-	display: table-cell; 
+	display: table-cell;
 }
 
 .images{
 	margin: auto
-		
+
 	display: table-cell;
 
 }
