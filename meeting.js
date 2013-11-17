@@ -11,12 +11,11 @@
       function displayChatMessage(image){
       	//var im = atob(image.trim());
       var im =	Base64.decode(image);
-      var testim = "iVBORw0KGgoAAAANSUhEUgAAAAUA
-AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-9TXL0Y4OHwAAAABJRU5ErkJggg==";
      // im = atob(im);
       	//draw(im);
-      	var imagestring = '<img src="data:image/png;base64,'+testim+'" alt="Red dot"/>';
+      	//var testim = 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" '
+      	var ourim  = image;
+      	var imagestring = '<img src="data:image/png;base64,'+ourim+'alt="Red dot"/>';
 
       	  $(".messages").append(imagestring);
 
