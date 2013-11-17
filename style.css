@@ -1,0 +1,25 @@
+.messages{
+	height: 100%;
+	width: 200px;
+	background-color: #adfadf;
+	display: table-cell; 
+}
+
+.images{
+	margin: auto
+		
+	display: table-cell;
+
+}
+
+.table_pic{
+	display: table-cell;
+}
+
+.base_row{
+	background-color: green;
+}
+
+.pic_row{
+	background-color: yellow;
+}
