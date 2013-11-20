@@ -43,8 +43,8 @@ function setUpImages(meeting_number){
       movementOne.on('value', function(snapshot) {
         console.log("IN movement");
         if(snapshot.val()!==null){
-            var x= snapshot.val().x *8;
-            var y= snapshot.val().y *8;
+            var x= snapshot.val().x *208;
+            var y= snapshot.val().y *168;
             var pone = $("#p_one");
             pone.css('margin-left',x+'px');
             pone.css('margin-top',y+'px');
@@ -58,8 +58,8 @@ function setUpImages(meeting_number){
   movementTwo.on('value', function(snapshot) {
         console.log("IN movement");
         if(snapshot.val()!==null){
-            var x= snapshot.val().x *8;
-            var y= snapshot.val().y *8;
+            var x= snapshot.val().x *45;
+            var y= snapshot.val().y *17;
             var pone = $("#p_two");
             pone.css('margin-left',x+'px');
             pone.css('margin-top',y+'px');
@@ -72,8 +72,8 @@ function setUpImages(meeting_number){
   movementThree.on('value', function(snapshot) {
         console.log("IN movement");
         if(snapshot.val()!==null){
-            var x= snapshot.val().x *8;
-            var y= snapshot.val().y *8;
+            var x= snapshot.val().x *248;
+            var y= snapshot.val().y *208;
             var pone = $("#p_three");
             pone.css('margin-left',x+'px');
             pone.css('margin-top',y+'px');
@@ -86,8 +86,8 @@ function setUpImages(meeting_number){
     movementFour.on('value', function(snapshot) {
         console.log("IN movement");
         if(snapshot.val()!==null){
-            var x= snapshot.val().x *8;
-            var y= snapshot.val().y *8;
+            var x= snapshot.val().x *118;
+            var y= snapshot.val().y *115;
             var pone = $("#p_four");
             pone.css('margin-left',x+'px');
             pone.css('margin-top',y+'px');
